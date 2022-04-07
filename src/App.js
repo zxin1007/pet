@@ -1,11 +1,19 @@
+import {HashRouter, Routes, Route} from 'react-router-dom'
 import Pet from './component/Pet'
+import Navbar from './component/Navbar'
+import Filter from './component/Filter';
+import Search from './component/Search';
 import './App.css';
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      <Pet />
-    </div>
+    <HashRouter>
+      <Routes>
+        <Route path='/' element={<Navbar />} >
+          <Route path='/' element={<Pet />}/>
+        </Route>
+      </Routes>
+    </HashRouter>
   );
 }
 
