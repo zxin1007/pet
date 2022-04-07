@@ -3,7 +3,6 @@ import Pet from './component/Pet'
 import Navbar from './component/Navbar'
 import Filter from './component/Filter';
 import Search from './component/Search';
-import './App.css';
 
 function App(props) {
   return (
