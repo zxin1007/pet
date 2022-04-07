@@ -1,5 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { defaultPet } from '../state/petState'
 import Filter from "./Filter";
 import Search from './Search'
 import styled from 'styled-components'
@@ -14,10 +16,12 @@ const Nav = styled.ul`
 
 export default function Navbar (){
 
+    const dispatch = useDispatch();
+
     return (
         <>
             <Nav>
-                <li>Home</li>
+                <li onClick={()=>dispatch(defaultPet())} style={{cursor:"pointer"}}>Home</li>
             </Nav>
             <Search />
             <Filter />
