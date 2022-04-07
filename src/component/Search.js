@@ -20,7 +20,6 @@ export default function Search (){
     }
 
     function handleChange(){
-        console.log(searchInput.current.value)
         dispatch(filter(searchInput.current.value))
     }
 
