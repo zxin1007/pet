@@ -3,6 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { saveAs } from 'file-saver';
 import JSZip from 'jszip'
 import {getBinaryContent} from 'jszip-utils'
+import styled from 'styled-components';
+
+
+const FilterButtons = styled.div`
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+`
 
 export default function Filter (){
 
@@ -28,10 +37,10 @@ export default function Filter (){
     }
 
     return (
-        <div className="filter">
+        <FilterButtons>
             <button onClick={()=>dispatch(selectAll())}>Select All</button>
             <button onClick={()=>dispatch(clearAll())}>Clear All</button>
             <button onClick={()=>downloadImg()}>Download All</button>
-        </div>
+        </FilterButtons>
     )
 }
