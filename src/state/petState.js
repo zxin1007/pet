@@ -24,6 +24,9 @@ const petReducer = (state=initialState, action) => {
         case "FILTER":
             return {...state, pet:action.payload? state.pet.filter(p=> p.title.toLowerCase().includes(action.payload.toLowerCase())||p.description.toLowerCase().includes(action.payload.toLowerCase())):state.originalPet,originalPet:state.originalPet.map(p=>{return{...p,isSelected:false}})}
 
+        case "DEFAULT_PET":
+            return {...state, pet:state.originalPet.map(p=>{return{...p,isSelected:false}})}
+
         default:
             return state;
     }
@@ -64,11 +67,18 @@ const filter = (keyword)=>{
     }
 }
 
+const defaultPet = () =>{
+    return{
+        type : "DEFAULT_PET"
+    }
+}
+
 export {
     dataInitalize,
     selection,
     selectAll,
     clearAll,
     filter,
+    defaultPet,
     store
 };
